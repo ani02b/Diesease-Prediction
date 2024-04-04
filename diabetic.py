@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 import pickle
 
-dia_df= pd.read_csv('C:\\Users\\KIIT\\Programs\\Projects\\Content\\diabetes.csv')
+dia_df= pd.read_csv('diabetes.csv')
 print(dia_df.head())
 
 dia_df = dia_df.drop(["Pregnancies"], axis=1)
