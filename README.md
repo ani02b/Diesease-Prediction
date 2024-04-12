@@ -1,1 +1,1 @@
-# Diesease-Prediction
+# ML Diagnostic
