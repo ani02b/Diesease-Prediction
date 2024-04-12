@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML API</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: black;
+        color: whitesmoke;
+      }
+
+      .content {
+        padding: 0px 0px 0px 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .col1 {
+        flex-basis: 15%;
+        border-right: 8px solid #222;
+      }
+      .col1 h2 {
+        padding-top: 50px;
+        font-size: 38px;
+        font-weight: 600;
+      }
+
+      .col2 {
+        flex-basis: 82%;
+        height: 145vh;
+      }
+
+      .tab-titles {
+        margin-top: 60px;
+      }
+      .tab-titles p {
+        color: rgba(250, 0, 0, 70);
+        font-size: x-large;
+      }
+
+      .tab-links {
+        cursor: pointer;
+        position: relative;
+      }
+      .tab-links::after {
+        content: "";
+        width: 0;
+        height: 3px;
+        background: #ff004f;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        transition: 0.2s;
+      }
+      .tab-links.active-link::after {
+        width: 35px;
+      }
+
+      .tabs {
+        display: none;
+      }
+      .tabs.active-tab {
+        display: block;
+      }
+
+      .tabs label {
+        font-size: x-large;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .tabs input {
+        padding: 30px 10px 10px 20px;
+        background-color: blue;
+        color: yellow;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 15px;
+        outline: 3px solid yellow;
+        outline-offset: -9px;
+        font-family: cursive;
+        transition: all 1s;
+        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+          rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset;
+      }
+      .tabs input:focus {
+        box-shadow: rgb(213, 18, 14) 5px 5px 0px 0px;
+      }
+
+      .btn {
+        align-items: center;
+        font-size: 25px;
+        font-weight: 700;
+        padding: 15px 25px;
+        background-color: red;
+        border-radius: 30px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="col1">
+        <h2>Category</h2>
+        <div class="tab-titles">
+          <p class="tab-links" onclick="opentab('diabetes')">Diabetes</p>
+          <p class="tab-links" onclick="opentab('kidney')">Kidney</p>
+          <p class="tab-links" onclick="opentab('heart')">Heart</p>
+          <p class="tab-links" onclick="opentab('lungcancer')">Lungs Cancer</p>
+          <p class="tab-links" onclick="opentab('breastcancer')">Breast Cancer</p>
+        </div>
+      </div>
+      <div class="col2">
+        <div class="tabs active-tab" id="start">
+          <h1><center>{{prediction_text}}</center></h1>
+          <br /><br /><br /><br />
+          <h4>
+            <center>Choose any disease from the category given aside</center>
+          </h4>
+          <h4><center>The respective tab will appear here</center></h4>
+        </div>
+        <div class="tabs" id="diabetes">
+          <h1><center>Please fill the appropriate details</center></h1>
+          <form action="{{ url_for('predict')}}" method="post">
+            <label for="glucose">Glucose level</label>
+            <input type="text" name="glucose" required="required" /><br /><br />
+            <label for="bp">Blood Pressure</label>
+            <input type="text" name="bp" required="required" /><br /><br />
+            <label for="insulin">Insulin level</label>
+            <input type="text" name="insulin" required="required" /><br /><br />
+            <label for="bmi">BMI</label>
+            <input type="text" name="bmi" required="required" /><br /><br />
+            <label for="dpf">Diabetes Pedegree Function</label>
+            <input type="text" name="dpf" required="required" /><br /><br />
+            <label for="age">Age</label>
+            <input type="text" name="age" required="required" /><br /><br />
+
+            <button type="submit" class="btn">Predict</button>
+          </form>
+        </div>
+        <div class="tabs" id="kidney">
+          <h1><center>Please fill the appropriate details</center></h1>
+          <form action="{{ url_for('predict1')}}" method="post">
+            <label for="age">Age</label>
+            <input type="text" name="age" required="required" /><br /><br />
+            <label for="sg">Specific Gravity</label>
+            <input type="text" name="sg" required="required" /><br /><br />
+            <label for="al">Alubin</label>
+            <input type="text" name="al" required="required" /><br /><br />
+            <label for="su">SU</label>
+            <input type="text" name="su" required="required" /><br /><br />
+            <label for="bgr">Blood Glucose Regulator</label>
+            <input type="text" name="bgr" required="required" /><br /><br />
+            <label for="bu">Blood Urea</label>
+            <input type="text" name="bu" required="required" /><br /><br />
+
+            <button type="submit" class="btn">Predict</button>
+          </form>
+        </div>
+        <div class="tabs" id="heart">
+          <h1><center>Please fill the appropriate details</center></h1>
+          <form action="{{ url_for('predict2')}}" method="post">
+            <label for="age">Age</label>
+            <input type="text" name="age" required="required" /><br /><br />
+            <label for="cp">CP</label>
+            <input type="text" name="cp" required="required" /><br /><br />
+            <label for="tb">Trestbps</label>
+            <input type="text" name="tb" required="required" /><br /><br />
+            <label for="recg">Rest ECG</label>
+            <input type="text" name="recg" required="required" /><br /><br />
+            <label for="ta">ThalAch</label>
+            <input type="text" name="ta" required="required" /><br /><br />
+            <label for="ex">Exang</label>
+            <input type="text" name="ex" required="required" /><br /><br />
+            <label for="op">Old Peak</label>
+            <input type="text" name="op" required="required" /><br /><br />
+            <label for="slp">Slope</label>
+            <input type="text" name="slp" required="required" /><br /><br />
+            <label for="ca">CA</label>
+            <input type="text" name="ca" required="required" /><br /><br />
+            <label for="thl">Thal</label>
+            <input type="text" name="thl" required="required" /><br /><br />
+
+            <button type="submit" class="btn">Predict</button>
+          </form>
+        </div>
+        <div class="tabs" id="lungcancer">
+          <h1><center>Please fill the appropriate details</center></h1>
+          <form action="{{ url_for('predict3')}}" method="post">
+            <label for="age">Age</label>
+            <input type="text" name="age" required="required" /><br /><br />
+            <label for="smoke">Smoke</label>
+            <input type="text" name="smoke" required="required" /><br /><br />
+            <label for="area">Area Quotient</label>
+            <input type="text" name="area" required="required" /><br /><br />
+            <label for="oh">Alcohol</label>
+            <input type="text" name="oh" required="required" /><br /><br />
+
+            <button type="submit" class="btn">Predict</button>
+          </form>
+        </div>
+        <div class="tabs" id="breastcancer">
+          <h1><center>Please fill the appropriate details</center></h1>
+          <form action="{{ url_for('predict4')}}" method="post">
+            <label for="mr">Mean Radius</label>
+            <input type="text" name="mr" required="required" /><br /><br />
+            <label for="mt">Mean Texture</label>
+            <input type="text" name="mt" required="required" /><br /><br />
+            <label for="mp">Mean Perimeter</label>
+            <input type="text" name="mp" required="required" /><br /><br />
+            <label for="ma">Mean Area</label>
+            <input type="text" name="ma" required="required" /><br /><br />
+            <label for="ms">Mean Smoothness</label>
+            <input type="text" name="ms" required="required" /><br /><br />
+
+            <button type="submit" class="btn">Predict</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabs = document.getElementsByClassName("tabs");
+      function opentab(tabname) {
+        for (tablink of tablinks) {
+          tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabs) {
+          tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
+  </body>
+</html>
