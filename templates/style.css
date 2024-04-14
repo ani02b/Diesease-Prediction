@@ -1,0 +1,96 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: black;
+    color: whitesmoke;
+}
+
+.content{
+    padding: 0px 0px 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.col1{
+    flex-basis: 15%;
+    border-right: 8px solid #222;
+}
+.col1 h2{
+    padding-top: 50px;
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.col2{
+    flex-basis: 82%;
+    height: 98vh;
+}
+
+.tab-titles{
+    margin-top: 60px;
+}
+.tab-titles p{
+    color: rgba(250, 0, 0, 70);
+    font-size: x-large;
+}
+
+.tab-links{
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.2s;
+}
+.tab-links.active-link::after{
+    width: 35px;
+}
+
+.tabs{
+    display: none;
+}
+.tabs.active-tab{
+    display: block;
+}
+
+.tabs label{
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tabs input{
+    padding: 30px 10px 10px 20px;
+    background-color: blue;
+    color: yellow;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 15px;
+    outline: 3px solid yellow;
+    outline-offset: -9px;
+    font-family: cursive;
+    transition: all 1s;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset;
+}
+.tabs input:focus{
+    box-shadow: rgb(213, 18, 14) 5px 5px 0px 0px;
+}
+
+.btn{
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 15px 25px;
+    background-color: red;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+}
