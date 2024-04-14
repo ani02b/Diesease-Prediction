@@ -5,7 +5,7 @@ from sklearn import tree
 
 import pickle
 
-lung_df= pd.read_csv('C:\\Users\\KIIT\\Programs\\Projects\\Content\\lung_cancer.csv')
+lung_df= pd.read_csv('lung_cancer.csv')
 print(lung_df.head())
 
 lung_df= lung_df.drop(["Name","Surname"],axis=1)
