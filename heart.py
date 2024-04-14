@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 import pickle
 
-heart_df= pd.read_csv('C:\\Users\\KIIT\\Programs\\Projects\\Content\\heart.csv')
+heart_df= pd.read_csv('heart.csv')
 print(heart_df.head())
 
 heart_df = heart_df.drop(["chol", "fbs","sex"], axis=1)
