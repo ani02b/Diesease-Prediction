@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 import pickle
 
-brst_df = pd.read_csv('C:\\Users\\KIIT\\Programs\\Projects\\Content\\breast.csv')
+brst_df = pd.read_csv('breast.csv')
 print(brst_df.head())
 
 brst_df = brst_df.dropna(axis=1)
