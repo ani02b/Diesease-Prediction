@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 import pickle
 
-kid_df= pd.read_csv('C:\\Users\\KIIT\\Programs\\Projects\\Content\\kidney_disease.csv')
+kid_df= pd.read_csv('kidney_disease.csv')
 print(kid_df.head())
 
 kid_df = kid_df[kid_df['classification'] != 'ckd\t']
