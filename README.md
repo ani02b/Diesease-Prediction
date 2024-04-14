@@ -4,4 +4,4 @@ Predictive Modeling for Disease Prediction using different Machine Learning Clas
 https://docs.google.com/presentation/d/1P_X6bquOntcQHeS8cJnTeRy18VTEMshTGI8_vWRCDDw/edit?usp=sharing
 
 ## Codes to run
-Diabetes: https://github.com/ani02b/ML-Diagnostic/blob/main/diabetic.py
+<a href="https://github.com/ani02b/ML-Diagnostic/blob/main/diabetic.py">Diabetes</a>
