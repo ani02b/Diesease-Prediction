@@ -10,4 +10,4 @@ https://docs.google.com/presentation/d/1P_X6bquOntcQHeS8cJnTeRy18VTEMshTGI8_vWRC
 4. <a href="https://github.com/ani02b/ML-Diagnostic/blob/main/lung.py">Lung Cancer</a>
 5. <a href="https://github.com/ani02b/ML-Diagnostic/blob/main/breast.py">Breast Cancer</a>
 
-Run the app.py file.
+Run the <a href="https://github.com/ani02b/ML-Diagnostic/blob/main/app.py">app.py</a> file.
